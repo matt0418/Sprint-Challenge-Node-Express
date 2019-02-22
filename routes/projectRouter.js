@@ -79,9 +79,9 @@ router.put('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
     const id = req.params.id
     try {
-        const deleted = await Projects.remove(id)
-        console.log(deleted)
-        if (deleted > 0) {
+        const count = await Projects.remove(id)
+        console.log(count)
+        if (count > 0) {
             res.status(200).json(deleted)
         } else {
             res.status(404).json({ error: "No such project with that ID exists" })

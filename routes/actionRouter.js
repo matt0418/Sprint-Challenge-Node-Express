@@ -44,6 +44,31 @@ router.post('/', async(req, res) => {
     }
 })
 
+router.put('/:id', async(req, res) => {
+    const id = req.params.id
+    const changes = req.body
+    try {
+        const action = await Actions.update(id, changes)
+        res.status(200).json(action)
+    } catch(error) {
+        console.log(error)
+        res.status(500).json({ error: "There was an error while trying to update the action" })
+    }
+})
 
+router.delete('/:id', async (req, res) => {
+    const id = req.params.id
+    try {
+        const count = await Actions.remove(id)
+        if (count > 0) {
+            res.status(200).json(count)
+        } else {
+            res.status(404).json({ error: "No action with this id exists" })
+        }
+    } catch(error) {
+        console.log(error)
+        res.status(500).json({ error: "There was an error while trying to delete this action" })
+    }
+})
 
 module.exports = router
