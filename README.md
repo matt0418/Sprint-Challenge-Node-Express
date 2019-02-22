@@ -26,13 +26,24 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ] Mention two parts of Express that you learned about this week.
 
+1. It's compatible with connect middleware
+2. Can use routing to help make the application more manageable
+
 - [ ] Describe Middleware?
+
+1. Middleware is a function that intercepts a request and can either hold on to it for some amount of time, or mutate it before it sends it off to the next piece of middleware
 
 - [ ] Describe a Resource?
 
+1. A resource is some data that express can send to a client, like a list or array of something
+
 - [ ] What can the API return to help clients know if a request was successful?
 
+1. Error and Success messages that can let the client know what occured after they made a request
+
 - [ ] How can we partition our application into sub-applications?
+
+1. We can use express router to divide the application into smaller parts (make it modular) that make it easier to manage.
 
 ## Project Setup
 
